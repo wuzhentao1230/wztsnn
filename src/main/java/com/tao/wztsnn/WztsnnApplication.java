@@ -16,7 +16,7 @@ public class WztsnnApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WztsnnApplication.class, args);
-        System.out.println("再次测试");
+        System.out.println("测试行不行");
     }
 
 }
