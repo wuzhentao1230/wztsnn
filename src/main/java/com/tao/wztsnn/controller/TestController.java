@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestController {
-    @RequestMapping("test")
+    @RequestMapping("/test")
     public @ResponseBody String test(){
-        return "test good";
+        return "test good 1";
     }
 }
