@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //可以对某个方法添加线程池
 @EnableAsync
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication
 public class WztsnnApplication {
 
     public static void main(String[] args) {
