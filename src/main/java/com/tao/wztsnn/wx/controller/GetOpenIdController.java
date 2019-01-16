@@ -1,4 +1,4 @@
-package com.tao.wztsnn.wx.Controller;
+package com.tao.wztsnn.wx.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

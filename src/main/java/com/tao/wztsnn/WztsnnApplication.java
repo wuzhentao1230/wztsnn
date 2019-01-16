@@ -1,5 +1,6 @@
 package com.tao.wztsnn;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -11,7 +12,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //可以对某个方法添加线程池
 @EnableAsync
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@MapperScan("com.tao.wztsnn.*.dao")
+
+@SpringBootApplication
 public class WztsnnApplication {
 
     public static void main(String[] args) {
