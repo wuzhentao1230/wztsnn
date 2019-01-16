@@ -22,7 +22,7 @@ public class GetOpenIdController {
     private String secret;
 
 
-    @RequestMapping("/wx")
+    @RequestMapping("/getId")
     @ResponseBody
     public ResultBean getOpenId(String code){
         ResultBean bean = new ResultBean();
