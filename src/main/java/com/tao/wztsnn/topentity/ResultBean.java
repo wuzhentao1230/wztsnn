@@ -1,9 +1,7 @@
-package com.tao.wztsnn.Entity;
+package com.tao.wztsnn.topentity;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Map;
 
 @Getter
 @Setter
