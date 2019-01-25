@@ -2,6 +2,7 @@ package com.tao.wztsnn.wx.dao;
 
 import com.tao.wztsnn.wx.entity.UserInfo;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /***
@@ -20,4 +21,7 @@ public interface WxInfoDao {
             "values (#{openid},#{nickName},#{avatarUrl},#{city},#{country},#{province},#{gender},#{language}) " +
             "ON DUPLICATE KEY UPDATE `avatarUrl` = #{avatarUrl}")
     public int insertPersonInfo(UserInfo userInfo);
+
+    @Select("select * from user_info where openid = #{openid}")
+    public UserInfo getUserById(String openid);
 }
