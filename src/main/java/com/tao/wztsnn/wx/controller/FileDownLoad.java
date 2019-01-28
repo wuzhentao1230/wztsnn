@@ -22,7 +22,7 @@ public class FileDownLoad {
 
         String fileName = UUID.randomUUID().toString().replace("-", "").toLowerCase()+"."+multipartFile.getOriginalFilename().replaceFirst(".*\\.","");
         System.out.println("进入get方法！拿到文件:"+fileName);
-        String realPath = "/home/wzt";
+        String realPath = "/home/wzt/audio";
         try {
             File dir = new File(realPath);
             if (!dir.exists()) {
