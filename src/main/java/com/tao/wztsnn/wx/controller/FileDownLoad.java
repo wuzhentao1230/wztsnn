@@ -18,7 +18,7 @@ public class FileDownLoad {
     //文件下载相关代码
     @RequestMapping("/download")
     @ResponseBody
-    public String downloadFile(@RequestParam(name = "file") MultipartFile multipartFile, HttpServletResponse response) {
+    public Object downloadFile(@RequestParam(name = "file") MultipartFile multipartFile, HttpServletResponse response) {
 
         String fileName = UUID.randomUUID().toString().replace("-", "").toLowerCase()+"."+multipartFile.getOriginalFilename().replaceFirst(".*\\.","");
         System.out.println("进入get方法！拿到文件:"+fileName);
