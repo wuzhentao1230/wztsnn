@@ -1,4 +1,4 @@
-package com.tao.wztsnn.topcontroller;
+package com.tao.wztsnn.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

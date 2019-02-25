@@ -2,7 +2,7 @@ package com.tao.wztsnn.wx.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.tao.wztsnn.topentity.ResultBean;
+import com.tao.wztsnn.entity.ResultBean;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

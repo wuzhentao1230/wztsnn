@@ -1,4 +1,4 @@
-package com.tao.wztsnn.topentity;
+package com.tao.wztsnn.entity;
 
 import lombok.Getter;
 import lombok.Setter;

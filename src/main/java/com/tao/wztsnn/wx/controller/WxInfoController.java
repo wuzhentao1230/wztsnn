@@ -1,6 +1,5 @@
 package com.tao.wztsnn.wx.controller;
 
-import com.tao.wztsnn.topentity.ResultBean;
 import com.tao.wztsnn.wx.entity.UserInfo;
 import com.tao.wztsnn.wx.service.WxInfoService;
 import org.springframework.beans.factory.annotation.Autowired;

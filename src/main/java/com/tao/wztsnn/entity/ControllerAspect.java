@@ -1,4 +1,4 @@
-package com.tao.wztsnn.topentity;
+package com.tao.wztsnn.entity;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -24,7 +24,7 @@ public class ControllerAspect {
      * Pointcut定义切点
      * public修饰符的   返回值任意  com.cy.controller包下面的任意类的任意方法任意参数
      */
-    @Pointcut("execution(public * com.tao.wztsnn.topcontroller.*.*(..)) || execution(public * com.tao.wztsnn.wx.controller.*.*(..))")
+    @Pointcut("execution(public * com.tao.wztsnn.controller.*.*(..)) || execution(public * com.tao.wztsnn.wx.controller.*.*(..))")
     public void log(){
 
     }
