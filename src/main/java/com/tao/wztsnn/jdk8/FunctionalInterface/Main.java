@@ -5,6 +5,50 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/***
+ * 函数式接口的应用实例
+ *
+ *
+ *
+ *
+ *
+ *   常用的函数式接口主要有四种类型，是通过其输入和输出的参数来进行区分的。定义了编码过程中主要的使用场景。
+ *
+ *   Function<T,R>   
+ *
+ *   接收一个T类型的参数，返回一个R类型的结果
+ *
+ *   Consumer<T>
+ *
+ *   接收一个T类型的参数，不返回值
+ *
+ *   Predicate<T>
+ *
+ *   接收一个T类型的参数，返回一个boolean类型的结果
+ *
+ *   Supplier<T>
+ *
+ *   不接受参数，返回一个T类型的结果
+ *
+ *
+ *
+ * BiFunction<T, U, R>   
+ *
+ *    接收T类型和U类型的两个参数，返回一个R类型的结果
+ *
+ * BiConsumer<T , U>
+ *
+ *    接收T类型和U类型的两个参数，不返回值
+ *
+ * BiPredicate<T, U>
+ *
+ *    接收T类型和U类型的两个参数，返回一个boolean类型的结果
+ *
+ *  Java 8的Function接口学习(compose和andThen)
+ *  https://blog.csdn.net/qq_39096058/article/details/82864851
+ *
+ *
+ */
 public class Main {
     public static void main(String[] args) {
 
@@ -13,7 +57,7 @@ public class Main {
          * 这种形式最为直观，lambda表达式，接收一个String类型的参数，返回一个String类型的结果。
          * 完全符合函数式接口FunctionInterfaceTest的定义
          */
-        FunctionInterfaceTest functionInterfaceTest1 = item -> item+1;
+        FunctionInterfaceTest functionInterfaceTest1 = item -> item + 1;
         System.out.println(functionInterfaceTest1.getInfo("1:"));
 
         /**
@@ -28,14 +72,14 @@ public class Main {
         FunctionInterfaceTest functionInterfaceTest2 = Main::getInstance;  //方法引用
         FunctionInterfaceTest functionInterfaceTest3 = Main::getMessage;  //方法引用
 
-        String msg1 = joinStr("你好",functionInterfaceTest2); //输出：你好！世界
-        String msg2 = joinStr("你好",functionInterfaceTest3); //输出：世界，你好！
+        String msg1 = joinStr("你好", functionInterfaceTest2); //输出：你好！世界
+        String msg2 = joinStr("你好", functionInterfaceTest3); //输出：世界，你好！
         System.out.println(msg1);
         System.out.println(msg2);
 
         //还有更简单的写法,高度抽象化，具体处理由使用者自己决定
-        String msg3 = joinStr("你好",item ->item+"！世界"); //输出：你好！世界
-        String msg4 = joinStr("你好",item ->"世界,"+ item+"!"); //输出：世界，你好！
+        String msg3 = joinStr("你好", item -> item + "！世界"); //输出：你好！世界
+        String msg4 = joinStr("你好", item -> "世界," + item + "!"); //输出：世界，你好！
         System.out.println(msg3);
         System.out.println(msg4);
 
@@ -49,6 +93,7 @@ public class Main {
          * 这就是我们直接String::new，没有指定使用哪一个构造方法，却可以创建实例的原因
          */
         FunctionInterfaceTest functionInterfaceTest4 = String::new; //方法引用
+        System.out.println(functionInterfaceTest4.getInfo("吴"));
 
 
         /**
@@ -57,7 +102,7 @@ public class Main {
          */
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         //forEach传参Consumer接口类中的 void accept(T t)方法(有参数无返回结果的函数式接口)  则可以直接写
-        list.stream().filter(n->true).forEach(System.out::println);
+        list.stream().filter(n -> true).forEach(System.out::println);
 
         //sort 调用了 Comparator接口类中的 int compare(T o1, T o2);
         List<String> names1 = new ArrayList<String>();
@@ -67,17 +112,24 @@ public class Main {
         names1.add("Baidu ");
         names1.add("Sina ");
         Collections.sort(names1, (s1, s2) -> s1.compareTo(s2));
+
+        List<String> list1 = Arrays.asList("zhangsan","lisi","wangwu","xiaoming","zhaoliu");
+
+        list1.stream()
+                .map(value -> value + "1") //传入的是一个Function函数式接口
+                .filter(value -> value.length() > 2) //传入的是一个Predicate函数式接口
+                .forEach(value -> System.out.println(value)); //传入的是一个Consumer函数式接口
     }
 
-    public static String getInstance(String item){
-        return item+"！世界";
+    public static String getInstance(String item) {
+        return item + "！世界";
     }
 
-    public static String getMessage(String massage){
-        return "世界,"+ massage+"!";
+    public static String getMessage(String massage) {
+        return "世界," + massage + "!";
     }
 
-    public  static String joinStr(String str,FunctionInterfaceTest functionTest){
+    public static String joinStr(String str, FunctionInterfaceTest functionTest) {
         return functionTest.getInfo(str);
     }
 }
