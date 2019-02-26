@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @MapperScan("com.tao.wztsnn.*.dao")
 
-//@ComponentScan(basePackages = "com.tao.wztsnn.entity")
+//@ComponentScan(basePackages = "com.tao.wztsnn.rmsystem.controller.entity")
 @ServletComponentScan
 @SpringBootApplication
 public class WztsnnApplication {
