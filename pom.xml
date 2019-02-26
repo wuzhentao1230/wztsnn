@@ -13,9 +13,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zhentao.wu</groupId>
-    <artifactId>all</artifactId>
+    <artifactId>wztsnn</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>all</name>
+    <name>wztsnn</name>
     <description>Demo project for Spring Boot</description>
     <packaging>pom</packaging>
 
