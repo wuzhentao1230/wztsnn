@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wztsnn" />
+        <module name="project-start" />
+        <module name="service-wx" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="wztsnn" target="1.8" />
+      <module name="all" target="1.8" />
+      <module name="project-start" target="1.8" />
+      <module name="service-wx" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
