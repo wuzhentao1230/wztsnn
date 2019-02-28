@@ -1,6 +1,6 @@
 package com.zhentao.wu.projectstart;
 
-import org.mybatis.spring.annotation.MapperScan;
+import tk.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -12,7 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //可以对某个方法添加线程池
 @EnableAsync
 
-@MapperScan("com.zhentao.wu.servicewx.dao")
+//tk.mybatis.spring.annotation.MapperScan 通用Mapper注解
+@MapperScan("com.zhentao.wu")
 
 //@ComponentScan(basePackages = "com.tao.wztsnn.rmsystem.controller.entity")
 @ServletComponentScan

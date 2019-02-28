@@ -20,6 +20,9 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <mysql.version>5.1.42</mysql.version>
+        <mapper.plugin>tk.mybatis.mapper.generator.MapperPlugin</mapper.plugin>
+        <mapper.Mapper>tk.mybatis.mapper.common.Mapper</mapper.Mapper>
     </properties>
     <packaging>jar</packaging>
     <dependencies>
@@ -40,13 +43,37 @@
         </dependency>
     </dependencies>
 
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
+    <build>
+        <plugins>
+            <!--配置mbg-->
+            <!--https://blog.csdn.net/isea533/article/details/42102297-->
+            <!--此处应注意mybatis-generator-maven-plugin的版本-->
+            <!--较低版本的依赖会导致xml中包含@mbg.generator注释的代码不会被覆盖，造成增量叠加问题-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <configuration>
+                    <!--generator配置文件所在位置-->
+                    <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>tk.mybatis</groupId>
+                        <artifactId>mapper</artifactId>
+                        <version>4.1.5</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

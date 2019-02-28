@@ -1,6 +1,6 @@
 package com.zhentao.wu.servicewx.controller;
 
-import com.zhentao.wu.servicewx.entity.UserInfo;
+import com.zhentao.wu.servicewx.automybatis.entity.UserInfo;
 import com.zhentao.wu.servicewx.service.WxInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,5 +24,11 @@ public class WxInfoController {
     @ResponseBody
     public Object getUserInfo(String openid){
         return wxInfoService.getUserInfo(openid);
+    }
+
+    @RequestMapping("/getUserInfoTest1")
+    @ResponseBody
+    public Object getUserInfoTest1(String openid){
+        return wxInfoService.getUserInfoTest1(openid);
     }
 }
