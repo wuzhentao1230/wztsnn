@@ -1,6 +1,6 @@
 package com.zhentao.wu.servicewx.dao;
 
-import com.zhentao.wu.servicewx.automybatis.entity.UserInfo;
+import com.zhentao.wu.automybatis.model.UserInfo;
 import org.apache.ibatis.annotations.Insert;
 
 public interface MySqlMapper<T> {

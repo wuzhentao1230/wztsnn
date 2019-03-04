@@ -1,10 +1,12 @@
 package com.zhentao.wu.servicewx.service;
 
-import com.zhentao.wu.servicewx.automybatis.entity.UserInfo;
-import com.zhentao.wu.servicewx.automybatis.mapper.UserInfoMapper;
+import com.zhentao.wu.automybatis.mapper.UserInfoMapper;
+import com.zhentao.wu.automybatis.model.UserInfo;
 import com.zhentao.wu.servicewx.dao.WxInfoDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
+import tk.mybatis.mapper.weekend.Weekend;
 
 @Service
 public class WxInfoService {
@@ -20,13 +22,6 @@ public class WxInfoService {
 
     public Object getUserInfo(String openid) {
         return userInfoMapper.selectByPrimaryKey(openid);
-    }
-
-    public Object getUserInfoTest1(String openid) {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setOpenid(openid);
-        return userInfoMapper.select(userInfo
-        );
     }
 
 }
