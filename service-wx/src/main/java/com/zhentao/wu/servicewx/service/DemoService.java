@@ -45,7 +45,9 @@ public class DemoService {
         System.out.println(userInfoMapper.selectByExample(exampleAuto));
 
 
-        //更多排序之类的访问以下网站https://github.com/abel533/Mapper/wiki/6.example
+        //更多排序之类的访问以下网站
+        //1.https://github.com/abel533/Mapper/wiki/6.example
+        //2.https://blog.csdn.net/biandous/article/details/65630783
 
 
 
