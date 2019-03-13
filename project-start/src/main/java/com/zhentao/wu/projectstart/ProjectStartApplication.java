@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //tk.mybatis.spring.annotation.MapperScan 通用Mapper注解
 @MapperScan("com.zhentao.wu")
 
-//@ComponentScan(basePackages = "com.tao.wztsnn.rmsystem.controller.entity")
 @ServletComponentScan
 @SpringBootApplication(scanBasePackages = {"com.zhentao.wu"})
 public class ProjectStartApplication {
