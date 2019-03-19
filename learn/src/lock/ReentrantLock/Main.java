@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args)  {
         //初始化可重入锁
         final Lock lock = new ReentrantLock();
-
+        //Condition能够更加精细的控制多线程的休眠与唤醒
         //第一个条件当屏幕上输出到3
         final Condition reachThreeCondition = lock.newCondition();
         //第二个条件当屏幕上输出到6
