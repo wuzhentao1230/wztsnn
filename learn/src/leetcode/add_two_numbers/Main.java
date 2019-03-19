@@ -9,9 +9,11 @@ public class Main {
 
 
 
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode listNodeResult = null;
         while (l1.next == null || l2.next == null){
+        int[] a = new int[2];
 
         }
         return listNodeResult;

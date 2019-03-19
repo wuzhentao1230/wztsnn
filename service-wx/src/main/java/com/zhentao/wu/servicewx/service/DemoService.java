@@ -48,6 +48,7 @@ public class DemoService {
         //更多查询的访问以下网站
         //1.https://github.com/abel533/Mapper/wiki/6.example
         //2.https://blog.csdn.net/biandous/article/details/65630783
+        //example.createCriteria().andCondition("lower(username)=", userName.toLowerCase());
 
 
 
