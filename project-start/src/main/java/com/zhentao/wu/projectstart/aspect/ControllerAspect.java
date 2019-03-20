@@ -1,5 +1,6 @@
-package com.zhentao.wu.projectstart.entity;
+package com.zhentao.wu.projectstart.aspect;
 
+import com.zhentao.wu.projectstart.entity.ResultBean;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
