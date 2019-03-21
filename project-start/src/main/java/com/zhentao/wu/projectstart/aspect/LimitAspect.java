@@ -56,7 +56,7 @@ public class LimitAspect {
         }
         RateLimiter rateLimiter = RateLimiterConfig.rateLimiterMap.get(key);
         if (!rateLimiter.tryAcquire(1000, TimeUnit.MILLISECONDS)){
-            logger.info("服务器繁忙开始抛弃这个请求");
+            logger.info("服务器繁忙开始抛弃了"+name);
             ResultBean resultBean = new ResultBean();
             resultBean.makeBusy("方法"+methodName+"限流了");
             return resultBean;
