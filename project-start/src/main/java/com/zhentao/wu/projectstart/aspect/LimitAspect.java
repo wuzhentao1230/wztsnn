@@ -1,7 +1,10 @@
 package com.zhentao.wu.projectstart.aspect;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.util.concurrent.RateLimiter;
 import com.zhentao.wu.projectstart.annotation.Limit;
+import com.zhentao.wu.projectstart.config.RateLimiterConfig;
+import com.zhentao.wu.projectstart.entity.ResultBean;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -22,17 +25,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 @Aspect
 @Component
 public class LimitAspect {
     private static final Logger logger = LoggerFactory.getLogger(LimitAspect.class);
-    private final RedisTemplate<String, Serializable> limitRedisTemplate;
 
-    @Autowired
-    public LimitAspect(RedisTemplate<String, Serializable> limitRedisTemplate) {
-        this.limitRedisTemplate = limitRedisTemplate;
-    }
+
 
     @Pointcut("@annotation(com.zhentao.wu.projectstart.annotation.Limit)")
     public void pointcut() {
@@ -42,15 +42,27 @@ public class LimitAspect {
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-
+        String methodName = point.getSignature().getName();
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
         Limit limitAnnotation = method.getAnnotation(Limit.class);
         String name = limitAnnotation.name();
-        String key;
-        int limitPeriod = limitAnnotation.period();
-        int limitCount = limitAnnotation.count();
-        return point.proceed();
+        String key = limitAnnotation.key();
+        float limitCount = limitAnnotation.count();
+
+        if (!RateLimiterConfig.rateLimiterMap.containsKey(key)){
+            RateLimiter rateLimiter = RateLimiter.create(limitCount);
+            RateLimiterConfig.rateLimiterMap.put(key,rateLimiter);
+        }
+        RateLimiter rateLimiter = RateLimiterConfig.rateLimiterMap.get(key);
+        if (!rateLimiter.tryAcquire(1000, TimeUnit.MILLISECONDS)){
+            logger.info("服务器繁忙开始抛弃这个请求");
+            ResultBean resultBean = new ResultBean();
+            resultBean.makeBusy("方法"+methodName+"限流了");
+            return resultBean;
+        }
+        Object result = point.proceed();
+        return result;
 
     }
 

@@ -25,5 +25,12 @@ public class ResultBean {
         this.desc = "empty data";
         this.status = 300;
     }
+
+    public void makeBusy(String message){
+        this.desc = "server busy";
+        this.status = 500;
+        this.message = message;
+    }
+
 }
 
