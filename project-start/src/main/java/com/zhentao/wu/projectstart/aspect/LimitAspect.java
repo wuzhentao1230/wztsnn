@@ -1,11 +1,9 @@
 package com.zhentao.wu.projectstart.aspect;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.RateLimiter;
 import com.zhentao.wu.projectstart.annotation.Limit;
 import com.zhentao.wu.projectstart.config.RateLimiterConfig;
 import com.zhentao.wu.projectstart.entity.ResultBean;
-import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,16 +11,11 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.script.DefaultRedisScript;
-import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -70,8 +63,13 @@ public class LimitAspect {
      * 限流脚本
      * 调用的时候不超过阈值，则直接返回并执行计算器自加。
      *
-     * @return lua脚本
-     */
+     * @return lua脚本get获取值  incr将key中储存的数字值增一   expire是用来给键设置过期时间
+     *
+     *
+     * String luaScript = buildLuaScript();
+     * RedisScript<Number> redisScript = new DefaultRedisScript<>(luaScript, Number.class);
+     * Number count = limitRedisTemplate.execute(redisScript, keys, limitCount, limitPeriod);
+      */
     private String buildLuaScript() {
         return "local c" +
                 "\nc = redis.call('get',KEYS[1])" +
