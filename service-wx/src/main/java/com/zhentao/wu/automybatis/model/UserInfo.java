@@ -1,6 +1,7 @@
 package com.zhentao.wu.automybatis.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,24 +14,12 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Table(name = "user_info")
 public class UserInfo implements Serializable {
-    @Id
-    private String openid;
+    private String username;
 
-    @Column(name = "nickName")
-    private String nickname;
+    private String password;
 
-    @Column(name = "avatarUrl")
-    private String avatarurl;
-
-    private String city;
-
-    private String country;
-
-    private String province;
-
-    private Byte gender;
-
-    private String language;
+    @Column(name = "register_time")
+    private Date registerTime;
 
     private static final long serialVersionUID = 1L;
 }
