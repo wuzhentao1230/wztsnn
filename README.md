@@ -14,3 +14,5 @@ jenkins进行自动化部署
 //todo:准备实现前段vue
 
 //todo:准备shiro做权限管理
+
+1.0.0

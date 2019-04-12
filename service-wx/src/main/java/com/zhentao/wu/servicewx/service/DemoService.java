@@ -60,10 +60,10 @@ public class DemoService {
 
 
 
-        Weekend weekend = new Weekend(UserInfo.class);
-        WeekendCriteria<UserInfo, Object> keywordCriteria = weekend.weekendCriteria();
-        keywordCriteria.andEqualTo(UserInfo::getOpenid,"oH2pc5Va8b2blOdGa7msiy-DFfxo");
-        System.out.println(userInfoMapper.selectByExample(weekend));
+//        Weekend weekend = new Weekend(UserInfo.class);
+//        WeekendCriteria<UserInfo, Object> keywordCriteria = weekend.weekendCriteria();
+//        keywordCriteria.andEqualTo(UserInfo::getOpenid,"oH2pc5Va8b2blOdGa7msiy-DFfxo");
+//        System.out.println(userInfoMapper.selectByExample(weekend));
 
 
     }
