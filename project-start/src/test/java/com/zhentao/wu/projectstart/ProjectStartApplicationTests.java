@@ -14,7 +14,7 @@ public class ProjectStartApplicationTests {
     DemoService demoService;
     @Test
     public void contextLoads() {
-        demoService.query();
+//        demoService.query();
     }
 
 }
