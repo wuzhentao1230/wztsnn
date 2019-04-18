@@ -52,7 +52,7 @@ public class LimitAspect {
         if (!rateLimiter.tryAcquire(1000, TimeUnit.MILLISECONDS)){
             logger.info("服务器繁忙开始抛弃了"+name);
             ResultBean resultBean = new ResultBean();
-            resultBean.makeBusy("功能:"+name+",方法:"+methodName+"-->限流了");
+            resultBean.makeBusy("name:"+name+",method:"+methodName+"-->限流了");
             return resultBean;
         }
         Object result = point.proceed();
