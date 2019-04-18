@@ -59,8 +59,8 @@
         <!-- 必须要有的，使用这个配置链接数据库
             @TODO:是否可以扩展
          -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://39.106.196.101:3306/wzt?useUnicode=true&amp;characterEncoding=utf8&amp;verifyServerCertificate=false&amp;\
-           useSSL=false&amp;requireSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai" userId="root" password="wzt">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://39.96.187.142:3306/wzt?useUnicode=true&amp;characterEncoding=utf8&amp;verifyServerCertificate=false&amp;\
+           useSSL=false&amp;requireSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai" userId="root" password="123456">
             <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上 -->
         </jdbcConnection>
 
@@ -179,7 +179,11 @@
 
             注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
          -->
-        <table tableName="user_info" >
+        <table tableName="rm_permission" ></table>
+        <table tableName="rm_role" ></table>
+        <table tableName="rm_role_permission" ></table>
+        <table tableName="rm_user" ></table>
+        <table tableName="rm_user_role" >
 
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
             <!--<property name="constructorBased" value="false"/>-->
