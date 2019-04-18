@@ -48,6 +48,7 @@ public class LimitAspect {
             RateLimiterConfig.rateLimiterMap.put(key,rateLimiter);
         }
         RateLimiter rateLimiter = RateLimiterConfig.rateLimiterMap.get(key);
+        //判断能否在1秒内得到令牌，如果不能则立即返回false，不会阻塞程序
         if (!rateLimiter.tryAcquire(1000, TimeUnit.MILLISECONDS)){
             logger.info("服务器繁忙开始抛弃了"+name);
             ResultBean resultBean = new ResultBean();
