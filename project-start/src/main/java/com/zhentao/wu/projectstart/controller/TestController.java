@@ -11,6 +11,6 @@ public class TestController {
     @Limit(name = "测试用的", key = "test", count = 0.1f)
     public @ResponseBody
     Object test() {
-        return "测试ok哇";
+        return "测试ok哇哇";
     }
 }
