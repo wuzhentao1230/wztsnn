@@ -27,7 +27,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws UnauthorizedException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         FebsProperties febsProperties = SpringContextUtil.getBean(FebsProperties.class);
-        String[] anonUrl = StringUtils.splitByWholeSeparatorPreserveAllTokens(febsProperties.getShiro().getAnonUrl(), ",");
+        String[] anonUrl = StringUtils.splitByWholeSeparatorPreserveAllTokens("/login,/logout/**,/regist,/user/check/**", ",");
 
         boolean match = false;
         for (String u : anonUrl) {

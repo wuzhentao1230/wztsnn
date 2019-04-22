@@ -1,5 +1,9 @@
 package com.zhentao.wu.servicerm.authentication;
 
+import com.zhentao.wu.automybatis.mapper.TUserMapper;
+import com.zhentao.wu.automybatis.model.TUser;
+import com.zhentao.wu.servicerm.service.RedisService;
+import com.zhentao.wu.servicerm.specialmapper.TUserMapperS;
 import com.zhentao.wu.servicerm.util.FebsUtil;
 import com.zhentao.wu.servicerm.util.HttpContextUtil;
 import com.zhentao.wu.servicerm.util.IPUtil;
@@ -12,8 +16,11 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Set;
 
 /**
  * 自定义实现 ShiroRealm，包含认证和授权两大模块
@@ -22,7 +29,14 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ShiroRealm extends AuthorizingRealm {
 
+    @Autowired
+    private TUserMapperS tUserMapperS;
 
+    @Autowired
+    private TUserMapper tUserMapper;
+
+    @Autowired
+    private RedisService redisService;
 
     @Override
     public boolean supports(AuthenticationToken token) {
@@ -41,13 +55,13 @@ public class ShiroRealm extends AuthorizingRealm {
 
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
 
-//        // 获取用户角色集
-//        Set<String> roleSet = userManager.getUserRoles(username);
-//        simpleAuthorizationInfo.setRoles(roleSet);
-//
-//        // 获取用户权限集
-//        Set<String> permissionSet = userManager.getUserPermissions(username);
-//        simpleAuthorizationInfo.setStringPermissions(permissionSet);
+        // 获取用户角色集
+        Set<String> roleSet = tUserMapperS.getRoles(username);
+        simpleAuthorizationInfo.setRoles(roleSet);
+
+        // 获取用户权限集
+        Set<String> permissionSet = tUserMapperS.getMenu(username);
+        simpleAuthorizationInfo.setStringPermissions(permissionSet);
         return simpleAuthorizationInfo;
     }
 
@@ -69,10 +83,10 @@ public class ShiroRealm extends AuthorizingRealm {
 
         String encryptToken = FebsUtil.encryptToken(token);
         String encryptTokenInRedis = null;
-//        try {
-//            encryptTokenInRedis = redisService.get(FebsConstant.TOKEN_CACHE_PREFIX + encryptToken + "." + ip);
-//        } catch (Exception ignore) {
-//        }
+        try {
+            encryptTokenInRedis = redisService.get("cache.token." + encryptToken + "." + ip);
+        } catch (Exception ignore) {
+        }
         // 如果找不到，说明已经失效
         if (StringUtils.isBlank(encryptTokenInRedis))
             throw new AuthenticationException("token已经过期");
@@ -81,14 +95,16 @@ public class ShiroRealm extends AuthorizingRealm {
 
         if (StringUtils.isBlank(username))
             throw new AuthenticationException("token校验不通过");
-//
-//        // 通过用户名查询用户信息
-//        User user = userManager.getUser(username);
-//
-//        if (user == null)
-//            throw new AuthenticationException("用户名或密码错误");
-//        if (!JWTUtil.verify(token, username, user.getPassword()))
-//            throw new AuthenticationException("token校验不通过");
+
+        // 通过用户名查询用户信息
+        Example exampleQuery = new Example(TUser.class);
+        exampleQuery.createCriteria().andEqualTo("USERNAME",username);
+        TUser user = tUserMapper.selectOneByExample(exampleQuery);
+
+        if (user == null)
+            throw new AuthenticationException("用户名或密码错误");
+        if (!JWTUtil.verify(token, username, user.getPassword()))
+            throw new AuthenticationException("token校验不通过");
         return new SimpleAuthenticationInfo(token, token, "febs_shiro_realm");
     }
 }
