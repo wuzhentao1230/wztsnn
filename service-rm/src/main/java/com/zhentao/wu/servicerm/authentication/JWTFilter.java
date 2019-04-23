@@ -15,6 +15,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Slf4j
 public class JWTFilter extends BasicHttpAuthenticationFilter {
@@ -40,7 +41,10 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
         }
         return false;
     }
-
+    /**
+     * 判断用户是否想要登入。
+     * 检测header里面是否包含Authorization字段即可
+     */
     @Override
     protected boolean isLoginAttempt(ServletRequest request, ServletResponse response) {
         HttpServletRequest req = (HttpServletRequest) request;
@@ -54,6 +58,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
         String token = httpServletRequest.getHeader(TOKEN);
         JWTToken jwtToken = new JWTToken(FebsUtil.decryptToken(token));
         try {
+            //登录实际上是调用doGetAuthenticationInfo的实现
             getSubject(request, response).login(jwtToken);
             return true;
         } catch (Exception e) {
@@ -78,5 +83,15 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
             return false;
         }
         return super.preHandle(request, response);
+    }
+    /**
+     * 将非法请求跳转到 /401
+     */
+    private void response401(ServletRequest req, ServletResponse resp) {
+        try {
+            HttpServletResponse httpServletResponse = (HttpServletResponse) resp;
+            httpServletResponse.sendRedirect("/401");
+        } catch (IOException e) {
+        }
     }
 }

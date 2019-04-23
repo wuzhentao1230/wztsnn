@@ -5,8 +5,6 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.zhentao.wu.servicerm.properties.FebsProperties;
-import com.zhentao.wu.servicerm.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,7 +13,7 @@ import java.util.Date;
 @Slf4j
 public class JWTUtil {
 
-    private static final long EXPIRE_TIME = SpringContextUtil.getBean(FebsProperties.class).getShiro().getJwtTimeOut() * 1000;
+    private static final long EXPIRE_TIME = 24 * 60 * 60 * 1000;
 
     /**
      * 校验 token是否正确

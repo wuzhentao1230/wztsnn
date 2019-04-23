@@ -21,6 +21,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * 自定义实现 ShiroRealm，包含认证和授权两大模块
@@ -46,6 +47,9 @@ public class ShiroRealm extends AuthorizingRealm {
     /**`
      * 授权模块，获取用户角色和权限
      *
+     * 1、subject.hasRole(“admin”) 或 subject.isPermitted(“admin”)：自己去调用这个是否有什么角色或者是否有什么权限的时候；
+     * 2、@RequiresRoles("admin") ：在方法上加注解的时候;
+     * 3、[@shiro.hasPermission name = "admin"][/@shiro.hasPermission]：在页面上加shiro标签的时候，即进这个页面的时候扫描到有这个标签的时候。
      * @param token token
      * @return AuthorizationInfo 权限信息
      */
@@ -60,7 +64,7 @@ public class ShiroRealm extends AuthorizingRealm {
         simpleAuthorizationInfo.setRoles(roleSet);
 
         // 获取用户权限集
-        Set<String> permissionSet = tUserMapperS.getMenu(username);
+        Set<String> permissionSet = tUserMapperS.getPermission(username).stream().filter(a -> a!=null).collect(Collectors.toSet());
         simpleAuthorizationInfo.setStringPermissions(permissionSet);
         return simpleAuthorizationInfo;
     }
@@ -75,6 +79,12 @@ public class ShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         // 这里的 token是从 JWTFilter 的 executeLogin 方法传递过来的，已经经过了解密
+        /*
+         * 当没有使用缓存的时候，不断刷新页面的话，这个代码会不断执行，
+         * 当其实没有必要每次都重新设置权限信息，所以我们需要放到缓存中进行管理；
+         * 当放到缓存中时，这样的话，doGetAuthorizationInfo就只会执行一次了，
+         * 缓存过期之后会再次执行。
+         */
         String token = (String) authenticationToken.getCredentials();
 
         // 从 redis里获取这个 token
@@ -98,7 +108,7 @@ public class ShiroRealm extends AuthorizingRealm {
 
         // 通过用户名查询用户信息
         Example exampleQuery = new Example(TUser.class);
-        exampleQuery.createCriteria().andEqualTo("USERNAME",username);
+        exampleQuery.createCriteria().andEqualTo("username",username);
         TUser user = tUserMapper.selectOneByExample(exampleQuery);
 
         if (user == null)

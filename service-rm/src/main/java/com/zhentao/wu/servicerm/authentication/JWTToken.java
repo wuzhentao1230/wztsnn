@@ -5,6 +5,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 
 /**
  * JSON Web Token
+ * 继承了AuthenticationToken用在subject.login
  */
 @Data
 public class JWTToken implements AuthenticationToken {

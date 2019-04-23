@@ -2,6 +2,7 @@ package util.fileutil;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MergeFile {
@@ -67,26 +68,41 @@ public class MergeFile {
 //            System.out.println("BBBBBBBBBB");
 //        }
 
-        String i3 = "100";
-        String i4 = "100";
-        if(i3.equals(i.toString())){
-            System.out.println("CCCCCCCCCC");
-        }
+//        String i3 = "100";
+//        String i4 = "100";
+//        if(i3.equals(i.toString())){
+//            System.out.println("CCCCCCCCCC");
+//        }
+//
+//        if(i3 == i.toString()){
+//            System.out.println("DDDDDDDDDD");
+//        }
+//        if(i3 == i4){
+//            System.out.println("EEEEEEEEEE");
+//        }
+//
+//        String i5 = new String("100");
+//        String i6 = new String("100");
+//        if(i5 == i6){
+//            System.out.println("FFFFFFFFFF");
+//        }
+//
+//        System.out.println(new StringBuilder("abs").reverse().toString());
 
-        if(i3 == i.toString()){
-            System.out.println("DDDDDDDDDD");
+        System.out.println(asList("user:view".split(":")));
+    }
+    public static <E> List<E> asList(E... elements) {
+        if (elements != null && elements.length != 0) {
+            int capacity = computeListCapacity(elements.length);
+            ArrayList<E> list = new ArrayList(capacity);
+            Collections.addAll(list, elements);
+            return list;
+        } else {
+            return Collections.emptyList();
         }
-        if(i3 == i4){
-            System.out.println("EEEEEEEEEE");
-        }
-
-        String i5 = new String("100");
-        String i6 = new String("100");
-        if(i5 == i6){
-            System.out.println("FFFFFFFFFF");
-        }
-
-        System.out.println(new StringBuilder("abs").reverse().toString());
     }
 
+    static int computeListCapacity(int arraySize) {
+        return (int)Math.min(5L + (long)arraySize + (long)(arraySize / 10), 2147483647L);
+    }
 }

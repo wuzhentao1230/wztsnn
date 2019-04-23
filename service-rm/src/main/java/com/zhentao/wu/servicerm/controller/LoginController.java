@@ -1,15 +1,16 @@
 package com.zhentao.wu.servicerm.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zhentao.wu.automybatis.mapper.TUserMapper;
 import com.zhentao.wu.automybatis.model.TUser;
 import com.zhentao.wu.servicerm.authentication.JWTToken;
 import com.zhentao.wu.servicerm.authentication.JWTUtil;
+import com.zhentao.wu.servicerm.domain.ActiveUser;
 import com.zhentao.wu.servicerm.entity.RmResultBean;
 import com.zhentao.wu.servicerm.exception.FebsException;
+import com.zhentao.wu.servicerm.service.RedisService;
 import com.zhentao.wu.servicerm.specialmapper.TUserMapperS;
-import com.zhentao.wu.servicerm.util.DateUtil;
-import com.zhentao.wu.servicerm.util.FebsUtil;
-import com.zhentao.wu.servicerm.util.MD5Util;
+import com.zhentao.wu.servicerm.util.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,8 +29,8 @@ import java.util.Set;
 public class LoginController {
     @Autowired
     private TUserMapper tUserMapper;
-//    @Autowired
-//    private RedisService redisService;
+    @Autowired
+    private RedisService redisService;
     @Autowired
     private TUserMapperS tUserMapperS;
     @PostMapping("/login")
@@ -64,12 +65,11 @@ public class LoginController {
         String expireTimeStr = DateUtil.formatFullTime(expireTime);
         JWTToken jwtToken = new JWTToken(token, expireTimeStr);
 
-//        String userId = this.saveTokenToRedis(user, jwtToken, request);
-//        user.setId(userId);
+        String userId = this.saveTokenToRedis(user, jwtToken, request);
+        user.setId(userId);
 
         Map<String, Object> userInfo = this.generateUserInfo(jwtToken, user);
-        RmResultBean bean = new RmResultBean().makeSuccess(userInfo);
-        return bean;
+        return userInfo;
     }
     /**
      * 生成前端需要的用户信息，包括：
@@ -92,11 +92,28 @@ public class LoginController {
         Set<String> roles = this.tUserMapperS.getRoles(username);
         userInfo.put("roles", roles);
 
-        Set<String> menus = this.tUserMapperS.getMenu(username);
-        userInfo.put("permissions", menus);
+        Set<String> permissions = this.tUserMapperS.getPermission(username);
+        userInfo.put("permissions", permissions);
 
         user.setPassword("it's a secret");
         userInfo.put("user", user);
         return userInfo;
+    }
+    private String saveTokenToRedis(TUser user, JWTToken token, HttpServletRequest request) throws Exception {
+        String ip = IPUtil.getIpAddr(request);
+
+        // 构建在线用户
+        ActiveUser activeUser = new ActiveUser();
+        activeUser.setUsername(user.getUsername());
+        activeUser.setIp(ip);
+        activeUser.setToken(token.getToken());
+        activeUser.setLoginAddress(AddressUtil.getCityInfo(1, ip));
+
+        // zset 存储登录用户，score 为过期时间戳
+        this.redisService.zadd("user.active", Double.valueOf(token.getExipreAt()), JSONObject.toJSONString(activeUser));
+        // redis 中存储这个加密 token，key = 前缀 + 加密 token + .ip
+        this.redisService.set("cache.token." + token.getToken() + "." + ip, token.getToken(), 86400L * 1000);
+
+        return activeUser.getId();
     }
 }
