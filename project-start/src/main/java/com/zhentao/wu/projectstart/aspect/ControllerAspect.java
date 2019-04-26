@@ -17,8 +17,8 @@ import java.util.Arrays;
 /**
  * 切面类
  */
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class ControllerAspect {
     private static Logger logger = LoggerFactory.getLogger(ControllerAspect.class);
     /**

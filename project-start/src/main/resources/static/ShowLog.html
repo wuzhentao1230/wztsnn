@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>logs</title>
+    <!-- 生产环境版本，优化了尺寸和速度 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="main">
+    <!--<template v-for="data in ">-->
+        <h5>{{msg_data}}</h5>
+    <!--</template>-->
+
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#main',
+        data:{
+            msg_data: ["开始"]
+        },
+        created() {
+            this.initWebSocket()
+        },
+        destroyed: function () {
+            this.websocketclose();
+        },
+        methods: {
+            initWebSocket: function () {
+                this.websock = new WebSocket("ws://localhost:7979/logs/websocket");
+                this.websock.onopen = this.websocketonopen;
+                this.websock.onerror = this.websocketonerror;
+                this.websock.onmessage = this.websocketonmessage;
+                this.websock.onclose = this.websocketclose;
+            },
+            websocketonopen: function () {
+                console.log("WebSocket连接成功");
+            },
+            websocketonerror: function (e) {
+                console.log("WebSocket连接发生错误");
+            },
+            websocketonmessage: function (e) {
+                this.msg_data.unshift(e.data);
+            },
+            websocketclose: function (e) {
+                console.log("connection closed (" + e.code + ")");
+            }
+        }
+    })
+</script>
+</body>
+</html>
