@@ -1,9 +1,11 @@
 package util.fileutil;
 
+import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.io.FileUtils;
+
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class MergeFile {
     public boolean unionFile(String outfile, String dictionary) throws IOException {
@@ -88,8 +90,34 @@ public class MergeFile {
 //        }
 //
 //        System.out.println(new StringBuilder("abs").reverse().toString());
+//        String aa = "振涛.*As__-";
+//        aa = aa.replaceAll("[^a-zA-Z0-9_-]", "");
+//        System.out.println(aa);
 
-        System.out.println(asList("user:view".split(":")));
+
+
+//        String[] strs = {"1","2","31","4","1"};
+//        List<String> strings = Arrays.asList(strs);
+//        System.out.println(strings.stream().map(x -> Integer.parseInt(x)).max(Integer::compare).get());
+//        File file = new File("d://ttt/a.txt");
+//        FileUtils.writeLines(file,strings);
+
+        File forRefineFile = new File("D://test/a.txt");
+        List<String> list = FileUtils.readLines(forRefineFile,"utf-8");
+
+        List<Map> result = list.stream().map(x -> {
+            Map<String,String> map = new HashMap<>();
+            String[] xs = x.split("\\s+");
+            if (xs.length == 3) {
+                map.put("originL", xs[0]);
+                map.put("msg", xs[1]);
+                map.put("L", xs[2]);
+            }
+            return map;
+        }).collect(Collectors.toList());
+
+
+        System.out.println(result);
     }
     public static <E> List<E> asList(E... elements) {
         if (elements != null && elements.length != 0) {
