@@ -1,6 +1,5 @@
 package com.zhentao.wu.servicerm.authentication;
 
-import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -44,15 +43,15 @@ public class ShiroConfig {
         // 配置 SecurityManager，并注入 shiroRealm
         securityManager.setRealm(shiroRealm());
         //使用ehcache来缓存用户的权限角色信息
-        securityManager.setCacheManager(getEhCacheManager());
+//        securityManager.setCacheManager(getEhCacheManager());
         return securityManager;
     }
 
-    public EhCacheManager getEhCacheManager(){
-        EhCacheManager ehcacheManager = new EhCacheManager();
-        ehcacheManager.setCacheManagerConfigFile("classpath:ehcache.xml");
-        return ehcacheManager;
-    }
+//    public EhCacheManager getEhCacheManager(){
+//        EhCacheManager ehcacheManager = new EhCacheManager();
+//        ehcacheManager.setCacheManagerConfigFile("classpath:ehcache.xml");
+//        return ehcacheManager;
+//    }
 
     @Bean
     public ShiroRealm shiroRealm() {

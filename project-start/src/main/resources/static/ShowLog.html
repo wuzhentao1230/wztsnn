@@ -9,7 +9,7 @@
 <body>
 <div id="main">
     <!--<template v-for="data in ">-->
-        <h5>{{msg_data}}</h5>
+        <span v-html="msg_data"></span>
     <!--</template>-->
 
 </div>
@@ -18,7 +18,7 @@
     let app = new Vue({
         el: '#main',
         data:{
-            msg_data: ["开始"]
+            msg_data: ""
         },
         created() {
             this.initWebSocket()
@@ -28,7 +28,7 @@
         },
         methods: {
             initWebSocket: function () {
-                this.websock = new WebSocket("ws://localhost:7979/logs/websocket");
+                this.websock = new WebSocket("ws://localhost:7979/websocket/1");
                 this.websock.onopen = this.websocketonopen;
                 this.websock.onerror = this.websocketonerror;
                 this.websock.onmessage = this.websocketonmessage;
@@ -41,7 +41,8 @@
                 console.log("WebSocket连接发生错误");
             },
             websocketonmessage: function (e) {
-                this.msg_data.unshift(e.data);
+                // this.msg_data.unshift(e.data);
+                this.msg_data += e.data
             },
             websocketclose: function (e) {
                 console.log("connection closed (" + e.code + ")");

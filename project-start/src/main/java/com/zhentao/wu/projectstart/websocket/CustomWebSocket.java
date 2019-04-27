@@ -3,12 +3,16 @@ package com.zhentao.wu.projectstart.websocket;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
+import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.Arrays;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-@ServerEndpoint(value = "/logs/websocket")
+@ServerEndpoint(value = "/websocket/{id}")
 @Component
 public class CustomWebSocket {
     /**
@@ -23,6 +27,7 @@ public class CustomWebSocket {
      * 与某个客户端的连接会话，需要通过它来给客户端发送数据
      */
     private Session session;
+    private boolean isClose = true;
 
     /**
      * 连接建立成功调用的方法
@@ -30,13 +35,45 @@ public class CustomWebSocket {
      * @param session
      */
     @OnOpen
-    public void onOpen(Session session) {
+    public void onOpen(@PathParam(value = "id") String id, Session session) {
         this.session = session;
         //加入set中
         webSocketSet.add(this);
         //添加在线人数
         addOnlineCount();
         System.out.println("新连接接入。当前在线人数为：" + getOnlineCount());
+
+        long lastTimeFileSize = 0;
+        long lastNum = 300;
+        String path = "d://test.log";
+        File file = new File(path);
+        if (!file.exists()){
+            System.out.println("没有这个文件");
+        }
+        lastTimeFileSize = file.length()>300?file.length()-300:0;
+        //指定文件可读可写
+        final RandomAccessFile randomFile;
+        try {
+            randomFile = new RandomAccessFile(file,"rw");
+            while(isClose){
+                Thread.sleep(Long.parseLong("1000"));
+
+                //获得变化部分的
+                randomFile.seek(lastTimeFileSize);
+                byte[] bbuf = new byte[1024];
+                int hasRead = 0;
+                while ((hasRead = randomFile.read(bbuf)) > 0) {
+                    System.out.print(new String(bbuf, 0, hasRead));
+                    sendMessage(new String(bbuf, 0, hasRead).replace("\n","<br />"));
+                }
+
+                lastTimeFileSize = randomFile.length();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            isClose = false;
+        }
+
     }
 
     /**
@@ -44,6 +81,7 @@ public class CustomWebSocket {
      */
     @OnClose
     public void onClose() {
+        isClose = false;
         //从set中删除
         webSocketSet.remove(this);
         //在线数减1
@@ -98,7 +136,7 @@ public class CustomWebSocket {
     @OnError
     public void onError(Session session, Throwable error) {
         System.out.println("----websocket-------有异常啦");
-        error.printStackTrace();
+        isClose=false;
     }
 
     /**
@@ -132,7 +170,13 @@ public class CustomWebSocket {
      */
     public void sendMessage(String message) throws IOException {
         //获取session远程基本连接发送文本消息
-        this.session.getBasicRemote().sendText(message);
+        //群发
+        try {
+            this.session.getBasicRemote().sendText(message);
+        } catch (Exception e) {
+            isClose=false;
+        }
+
         //this.session.getAsyncRemote().sendText(message);
     }
 }

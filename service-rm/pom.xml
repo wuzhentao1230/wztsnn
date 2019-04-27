@@ -83,6 +83,18 @@
             <artifactId>ip2region</artifactId>
             <version>1.7.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
