@@ -6,13 +6,12 @@ import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Arrays;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-@ServerEndpoint(value = "/websocket/{id}")
+@ServerEndpoint(value = "/websocket/{}")
 @Component
 public class CustomWebSocket {
     /**

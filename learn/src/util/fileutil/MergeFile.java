@@ -120,32 +120,34 @@ public class MergeFile {
 //        System.out.println(result);
 
 
-        long lastTimeFileSize = 0;
-        long lastNum = 300;
-        String path = "d://test.log";
-        File file = new File(path);
-        if (!file.exists()){
-            System.out.println("没有这个文件");
-        }
-        //指定文件可读可写
-        final RandomAccessFile randomFile = new RandomAccessFile(file,"rw");
-        while(true){
-            Thread.sleep(Long.parseLong("2000"));
-
-            lastTimeFileSize = file.length()>300?file.length()-300:file.length();
-            System.out.println("location:"+lastTimeFileSize);
-            //获得变化部分的
-            randomFile.seek(lastTimeFileSize);
-
-            String tmp = "";
-            System.out.println(randomFile.readLine());
-            while( (tmp = randomFile.readLine())!= null) {
-                System.out.println(new String(tmp.getBytes("utf-8")));
-            }
-
-            lastTimeFileSize = randomFile.length();
-        }
-
+//        long lastTimeFileSize = 0;
+//        long lastNum = 300;
+//        String path = "d://test.log";
+//        File file = new File(path);
+//        if (!file.exists()){
+//            System.out.println("没有这个文件");
+//        }
+//        //指定文件可读可写
+//        final RandomAccessFile randomFile = new RandomAccessFile(file,"rw");
+//        while(true){
+//            Thread.sleep(Long.parseLong("2000"));
+//
+//            lastTimeFileSize = file.length()>300?file.length()-300:file.length();
+//            System.out.println("location:"+lastTimeFileSize);
+//            //获得变化部分的
+//            randomFile.seek(lastTimeFileSize);
+//
+//            String tmp = "";
+//            System.out.println(randomFile.readLine());
+//            while( (tmp = randomFile.readLine())!= null) {
+//                System.out.println(new String(tmp.getBytes("utf-8")));
+//            }
+//
+//            lastTimeFileSize = randomFile.length();
+//        }
+//        File file = new File("d://test/a.txt");
+//        File file1 = new File("d://test/a1.txt");
+//        FileUtils.copyFile(file,file1);
 
 
     }

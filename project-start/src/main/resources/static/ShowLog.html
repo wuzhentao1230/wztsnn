@@ -28,7 +28,7 @@
         },
         methods: {
             initWebSocket: function () {
-                this.websock = new WebSocket("ws://localhost:7979/websocket/1");
+                this.websock = new WebSocket("ws://localhost:8087/websocket/dixin/classify/wzt_test1/0/ClassifierA");
                 this.websock.onopen = this.websocketonopen;
                 this.websock.onerror = this.websocketonerror;
                 this.websock.onmessage = this.websocketonmessage;
