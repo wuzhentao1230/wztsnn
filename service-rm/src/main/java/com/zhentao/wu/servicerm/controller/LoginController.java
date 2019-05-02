@@ -4,6 +4,7 @@ import com.zhentao.wu.automybatis.mapper.TUserMapper;
 import com.zhentao.wu.automybatis.model.TUser;
 import com.zhentao.wu.servicerm.authentication.JWTToken;
 import com.zhentao.wu.servicerm.authentication.JWTUtil;
+import com.zhentao.wu.servicerm.entity.RmResultBean;
 import com.zhentao.wu.servicerm.exception.FebsException;
 import com.zhentao.wu.servicerm.service.LoginService;
 import com.zhentao.wu.servicerm.util.DateUtil;
@@ -29,7 +30,7 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping("/login")
-    public Object login(
+    public RmResultBean login(
             @NotBlank(message = "{required}") String username,
             @NotBlank(message = "{required}") String password, HttpServletRequest request) throws Exception {
         username = StringUtils.lowerCase(username);
@@ -64,7 +65,9 @@ public class LoginController {
         user.setId(userId);
 
         Map<String, Object> userInfo = loginService.generateUserInfo(jwtToken, user);
-        return userInfo;
+        RmResultBean rmResultBean = new RmResultBean();
+        rmResultBean.makeSuccess(userInfo);
+        return rmResultBean;
     }
 
 }

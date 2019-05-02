@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
  *
  * @author MrBird
  */
-//@Configuration
+@Configuration
 public class ShiroConfig {
 
     @Bean
