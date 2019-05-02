@@ -17,15 +17,16 @@ import java.util.Arrays;
 /**
  * 切面类
  */
-//@Aspect
-//@Component
+@Aspect
+@Component
 public class ControllerAspect {
     private static Logger logger = LoggerFactory.getLogger(ControllerAspect.class);
     /**
      * Pointcut定义切点
      * public修饰符的   返回值任意  com.cy.controller包下面的任意类的任意方法任意参数
      */
-    @Pointcut("execution(public * com.zhentao.wu.*.controller.*.*(..))")
+//    @Pointcut("execution(public * com.zhentao.wu.*.controller.*.*(..))")
+    @Pointcut("@annotation(com.zhentao.wu.projectstart.annotation.Result)")
     public void log(){
 
     }
