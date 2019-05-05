@@ -4,9 +4,9 @@ import com.zhentao.wu.automybatis.mapper.TUserMapper;
 import com.zhentao.wu.automybatis.model.TUser;
 import com.zhentao.wu.servicerm.service.RedisService;
 import com.zhentao.wu.servicerm.specialmapper.TUserMapperS;
-import com.zhentao.wu.servicerm.util.FebsUtil;
 import com.zhentao.wu.servicerm.util.HttpContextUtil;
 import com.zhentao.wu.servicerm.util.IPUtil;
+import com.zhentao.wu.servicerm.util.RMUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -53,8 +53,15 @@ public class ShiroRealm extends AuthorizingRealm {
      * @param token token
      * @return AuthorizationInfo 权限信息
      */
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection token) {
+        /*
+         * 当没有使用缓存的时候，不断刷新页面的话，这个代码会不断执行，
+         * 当其实没有必要每次都重新设置权限信息，所以我们需要放到缓存中进行管理；
+         * 当放到缓存中时，这样的话，doGetAuthorizationInfo就只会执行一次了，
+         * 缓存过期之后会再次执行。
+         */
         String username = JWTUtil.getUsername(token.toString());
 
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
@@ -79,19 +86,14 @@ public class ShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         // 这里的 token是从 JWTFilter 的 executeLogin 方法传递过来的，已经经过了解密
-        /*
-         * 当没有使用缓存的时候，不断刷新页面的话，这个代码会不断执行，
-         * 当其实没有必要每次都重新设置权限信息，所以我们需要放到缓存中进行管理；
-         * 当放到缓存中时，这样的话，doGetAuthorizationInfo就只会执行一次了，
-         * 缓存过期之后会再次执行。
-         */
+
         String token = (String) authenticationToken.getCredentials();
 
         // 从 redis里获取这个 token
         HttpServletRequest request = HttpContextUtil.getHttpServletRequest();
         String ip = IPUtil.getIpAddr(request);
 
-        String encryptToken = FebsUtil.encryptToken(token);
+        String encryptToken = RMUtil.encryptToken(token);
         String encryptTokenInRedis = null;
         try {
             encryptTokenInRedis = redisService.get("cache.token." + encryptToken + "." + ip);
@@ -115,6 +117,6 @@ public class ShiroRealm extends AuthorizingRealm {
             throw new AuthenticationException("用户名或密码错误");
         if (!JWTUtil.verify(token, username, user.getPassword()))
             throw new AuthenticationException("token校验不通过");
-        return new SimpleAuthenticationInfo(token, token, "febs_shiro_realm");
+        return new SimpleAuthenticationInfo(token, token, "rm_realm");
     }
 }

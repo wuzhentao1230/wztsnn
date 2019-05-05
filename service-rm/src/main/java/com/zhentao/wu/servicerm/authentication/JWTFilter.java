@@ -1,7 +1,7 @@
 package com.zhentao.wu.servicerm.authentication;
 
 import com.zhentao.wu.servicerm.properties.FebsProperties;
-import com.zhentao.wu.servicerm.util.FebsUtil;
+import com.zhentao.wu.servicerm.util.RMUtil;
 import com.zhentao.wu.servicerm.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -56,7 +56,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
     protected boolean executeLogin(ServletRequest request, ServletResponse response) {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String token = httpServletRequest.getHeader(TOKEN);
-        JWTToken jwtToken = new JWTToken(FebsUtil.decryptToken(token));
+        JWTToken jwtToken = new JWTToken(RMUtil.decryptToken(token));
         try {
             //登录实际上是调用doGetAuthenticationInfo的实现
             getSubject(request, response).login(jwtToken);
