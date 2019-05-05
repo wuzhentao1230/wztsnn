@@ -1,5 +1,6 @@
 package com.zhentao.wu.projectstart.controller;
 
+import com.zhentao.wu.projectstart.annotation.Result;
 import com.zhentao.wu.projectstart.websocket.CustomWebSocket;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ public class TestController {
 
     @RequestMapping("/test")
 //    @Limit(name = "测试用的", key = "test", count = 0.1f)
+    @Result
     public @ResponseBody
     Object test() {
         try {
