@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class TestRightController {
     @RequiresPermissions("user:view")
     @GetMapping
     public Object testShiro(){

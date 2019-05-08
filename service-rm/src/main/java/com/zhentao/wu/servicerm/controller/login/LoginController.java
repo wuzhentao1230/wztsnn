@@ -1,4 +1,4 @@
-package com.zhentao.wu.servicerm.controller;
+package com.zhentao.wu.servicerm.controller.login;
 
 import com.zhentao.wu.automybatis.mapper.TUserMapper;
 import com.zhentao.wu.automybatis.model.TUser;
