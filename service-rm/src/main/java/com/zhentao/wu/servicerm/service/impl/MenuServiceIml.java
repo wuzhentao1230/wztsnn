@@ -1,10 +1,10 @@
 package com.zhentao.wu.servicerm.service.impl;
 
+import com.zhentao.wu.automybatis.mapper.TMenuMapper;
 import com.zhentao.wu.automybatis.model.TMenu;
 import com.zhentao.wu.servicerm.domain.router.RouterMeta;
 import com.zhentao.wu.servicerm.domain.router.VueRouter;
 import com.zhentao.wu.servicerm.service.MenuService;
-import com.zhentao.wu.servicerm.specialmapper.TUserMapperS;
 import com.zhentao.wu.servicerm.util.TreeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +15,12 @@ import java.util.List;
 @Service
 public class MenuServiceIml implements MenuService {
     @Autowired
-    private TUserMapperS tUserMapperS;
+    private TMenuMapper tMenuMapper;
 
     @Override
     public ArrayList<VueRouter<TMenu>> getUserRouters(String username) {
         List<VueRouter<TMenu>> routes = new ArrayList<>();
-        List<TMenu> menus = this.tUserMapperS.findUserMenus(username);
+        List<TMenu> menus = this.tMenuMapper.findUserMenus(username);
         menus.forEach(menu -> {
             VueRouter<TMenu> route = new VueRouter<>();
             route.setId(menu.getMenuId().toString());

@@ -74,12 +74,6 @@ public class TreeUtil {
         root.setChildren(topRoutes);
         list.add(root);
 
-        root = new VueRouter<>();
-        root.setName("404");
-        root.setComponent("error/404");
-        root.setPath("*");
-        list.add(root);
-
         return list;
     }
 }

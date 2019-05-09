@@ -1,8 +1,6 @@
 package com.zhentao.wu.servicerm.authentication;
 
-import com.zhentao.wu.servicerm.properties.FebsProperties;
 import com.zhentao.wu.servicerm.util.RMUtil;
-import com.zhentao.wu.servicerm.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.UnauthorizedException;
@@ -27,7 +25,6 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws UnauthorizedException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        FebsProperties febsProperties = SpringContextUtil.getBean(FebsProperties.class);
         String[] anonUrl = StringUtils.splitByWholeSeparatorPreserveAllTokens("/login,/logout/**,/regist,/user/check/**", ",");
 
         boolean match = false;
