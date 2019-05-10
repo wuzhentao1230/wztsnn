@@ -27,7 +27,7 @@ public class TreeUtil {
         if (routes == null) {
             return null;
         }
-        List<VueRouter<T>> topRoutes = new ArrayList<>();
+        ArrayList<VueRouter<T>> topRoutes = new ArrayList<>();
 
         routes.forEach(route -> {
             String parentId = route.getParentId();
@@ -49,16 +49,16 @@ public class TreeUtil {
             }
         });
 
-        ArrayList<VueRouter<T>> list = new ArrayList<>();
-        VueRouter<T> root = new VueRouter<>();
-        root.setName("主页");
-        root.setComponent("home");
-        root.setIcon("none");
-        root.setPath("/");
-        root.setRedirect("/home");
-        root.setChildren(topRoutes);
-        list.add(root);
+//        ArrayList<VueRouter<T>> list = new ArrayList<>();
+//        VueRouter<T> root = new VueRouter<>();
+//        root.setName("主页");
+//        root.setComponent("home");
+//        root.setIcon("none");
+//        root.setPath("/");
+//        root.setRedirect("/home");
+//        root.setChildren(topRoutes);
+//        list.add(topRoutes);
 
-        return list;
+        return topRoutes;
     }
 }
