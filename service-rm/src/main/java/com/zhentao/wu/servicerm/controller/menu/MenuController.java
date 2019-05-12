@@ -20,6 +20,7 @@ public class MenuController {
     private MenuServiceIml menuServiceIml;
 
     @GetMapping("/{username}")
+
     public ArrayList<VueRouter<TMenu>> getUserRouters(@NotBlank(message = "{required}") @PathVariable String username) {
         return this.menuServiceIml.getUserRouters(username);
     }
