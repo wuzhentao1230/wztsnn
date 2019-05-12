@@ -35,6 +35,8 @@ public class VueRouter<T> implements Serializable {
 
     private RouterMeta meta;
 
+    private String type;
+
     private List<VueRouter<T>> children;
 
     @JsonIgnore

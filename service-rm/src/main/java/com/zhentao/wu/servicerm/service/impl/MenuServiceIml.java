@@ -28,6 +28,7 @@ public class MenuServiceIml implements MenuService {
             route.setIcon(menu.getIcon());
             route.setPath(menu.getPath());
             route.setComponent(menu.getComponent());
+            route.setType(menu.getType());
             route.setName(menu.getMenuName());
             route.setMeta(new RouterMeta(true, null));
             routes.add(route);
