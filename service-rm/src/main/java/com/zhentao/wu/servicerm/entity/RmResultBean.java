@@ -16,10 +16,11 @@ public class RmResultBean {
         this.data = data;
         return this;
     }
-    public void makeFail(String message){
+    public RmResultBean makeFail(String message){
         this.desc = "error";
         this.status = 400;
         this.message = message;
+        return this;
     }
 
     public void makeEmpty(){

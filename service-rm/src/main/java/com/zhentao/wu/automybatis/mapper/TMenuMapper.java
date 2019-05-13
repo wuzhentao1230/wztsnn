@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface TMenuMapper extends Mapper<TMenu> {
     @Select("SELECT * FROM t_user u,t_role r,t_user_role ur,t_role_menu rm,t_menu m where u.USER_ID = ur.USER_ID AND r.ROLE_ID = ur.ROLE_ID AND rm.ROLE_ID = r.ROLE_ID AND rm.MENU_ID = m.MENU_ID AND\n" +
-            "u.USERNAME =  #{userName}")
+            "u.USERNAME =  #{userName} order by m.ORDER_NUM desc")
     @Results({
             @Result(property = "menuId", column = "MENU_ID"),
             @Result(property = "parentId", column = "PARENT_ID"),

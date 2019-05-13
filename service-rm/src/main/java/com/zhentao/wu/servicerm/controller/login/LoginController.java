@@ -33,6 +33,8 @@ public class LoginController {
     public RmResultBean login(
             @NotBlank(message = "{required}") String username,
             @NotBlank(message = "{required}") String password, HttpServletRequest request) throws Exception {
+        RmResultBean rmResultBean = new RmResultBean();
+
         username = StringUtils.lowerCase(username);
         password = MD5Util.encrypt(username, password);
 
@@ -43,9 +45,9 @@ public class LoginController {
         TUser user = tUserMapper.selectOneByExample(exampleQuery);
 
         if (user == null)
-            throw new FebsException(errorMessage);
+            return rmResultBean.makeFail("账号不存在");
         if (!StringUtils.equals(user.getPassword(), password))
-            throw new FebsException(errorMessage);
+            return rmResultBean.makeFail("密码错误");
         if ("0".equals(user.getStatus()))
             throw new FebsException("账号已被锁定,请联系管理员！");
 
@@ -65,7 +67,6 @@ public class LoginController {
         user.setId(userId);
 
         Map<String, Object> userInfo = loginService.generateUserInfo(jwtToken, user);
-        RmResultBean rmResultBean = new RmResultBean();
         rmResultBean.makeSuccess(userInfo);
         return rmResultBean;
     }
