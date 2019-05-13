@@ -14,10 +14,10 @@ import lombok.experimental.Accessors;
 @Table(name = "t_role_menu")
 public class TRoleMenu implements Serializable {
     @Column(name = "ROLE_ID")
-    private Long roleId;
+    private String roleId;
 
     @Column(name = "MENU_ID")
-    private Long menuId;
+    private String menuId;
 
     private static final long serialVersionUID = 1L;
 }

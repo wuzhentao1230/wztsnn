@@ -19,13 +19,13 @@ public class TMenu implements Serializable {
      */
     @Id
     @Column(name = "MENU_ID")
-    private Long menuId;
+    private String menuId;
 
     /**
      * 上级菜单ID
      */
     @Column(name = "PARENT_ID")
-    private Long parentId;
+    private String parentId;
 
     /**
      * 菜单/按钮名称
@@ -58,13 +58,13 @@ public class TMenu implements Serializable {
     private String icon;
 
     /**
-     * 类型 0菜单 1按钮
+     * 类型 0菜单  1菜单子页 2按钮
      */
     @Column(name = "TYPE")
     private String type;
 
     /**
-     * 排序
+     * 排序 权重越大越靠上
      */
     @Column(name = "ORDER_NUM")
     private Double orderNum;

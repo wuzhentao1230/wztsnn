@@ -14,14 +14,13 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Table(name = "t_user")
 public class TUser implements Serializable {
-
     private transient String id;
     /**
      * 用户ID
      */
     @Id
     @Column(name = "USER_ID")
-    private Long userId;
+    private String userId;
 
     /**
      * 用户名

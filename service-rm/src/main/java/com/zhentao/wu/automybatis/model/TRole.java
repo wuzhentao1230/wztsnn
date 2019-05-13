@@ -19,7 +19,7 @@ public class TRole implements Serializable {
      */
     @Id
     @Column(name = "ROLE_ID")
-    private Long roleId;
+    private String roleId;
 
     /**
      * 角色名称

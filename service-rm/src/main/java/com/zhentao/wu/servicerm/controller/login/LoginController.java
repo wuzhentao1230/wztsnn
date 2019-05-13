@@ -13,6 +13,8 @@ import com.zhentao.wu.servicerm.util.RMUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
@@ -64,11 +66,30 @@ public class LoginController {
         JWTToken jwtToken = new JWTToken(token, expireTimeStr);
 
         String userId = loginService.saveTokenToRedis(user, jwtToken, request);
+        //给TUser添加private transient String id;
         user.setId(userId);
 
         Map<String, Object> userInfo = loginService.generateUserInfo(jwtToken, user);
         rmResultBean.makeSuccess(userInfo);
         return rmResultBean;
+    }
+
+    @PostMapping("register")
+    @ResponseBody
+    public RmResultBean register(@NotBlank(message = "{required}") String username,
+                                 @NotBlank(message = "{required}") String password,
+                                 String email,
+                                 String mobile){
+        try{
+            TUser tUser = new TUser();
+            tUser.setUsername(username);
+            tUser.setPassword(password);
+            tUser.setEmail(email);
+            tUser.setMobile(mobile);
+            return loginService.registUser(tUser);
+        }catch (Exception e){
+            return new RmResultBean().makeFail("register fail,info:"+e.getMessage());
+        }
     }
 
 }

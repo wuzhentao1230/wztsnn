@@ -25,7 +25,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws UnauthorizedException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-        String[] anonUrl = StringUtils.splitByWholeSeparatorPreserveAllTokens("/login,/logout/**,/regist,/user/check/**", ",");
+        String[] anonUrl = StringUtils.splitByWholeSeparatorPreserveAllTokens("/login,/logout/**,/register,/user/check/**", ",");
 
         boolean match = false;
         for (String u : anonUrl) {

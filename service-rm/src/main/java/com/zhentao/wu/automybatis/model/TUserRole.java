@@ -17,13 +17,13 @@ public class TUserRole implements Serializable {
      * 用户ID
      */
     @Column(name = "USER_ID")
-    private Long userId;
+    private String userId;
 
     /**
      * 角色ID
      */
     @Column(name = "ROLE_ID")
-    private Long roleId;
+    private String roleId;
 
     private static final long serialVersionUID = 1L;
 }
