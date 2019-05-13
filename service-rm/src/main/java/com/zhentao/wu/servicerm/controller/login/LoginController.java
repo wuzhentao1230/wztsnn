@@ -82,12 +82,14 @@ public class LoginController {
                                  String mobile){
         try{
             TUser tUser = new TUser();
+            password = MD5Util.encrypt(username, password);
             tUser.setUsername(username);
             tUser.setPassword(password);
             tUser.setEmail(email);
             tUser.setMobile(mobile);
             return loginService.registUser(tUser);
         }catch (Exception e){
+            e.printStackTrace();
             return new RmResultBean().makeFail("register fail,info:"+e.getMessage());
         }
     }

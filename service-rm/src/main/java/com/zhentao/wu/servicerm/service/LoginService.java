@@ -16,10 +16,7 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class LoginService {
@@ -91,6 +88,8 @@ public class LoginService {
         String uuid = UUID.randomUUID().toString(); //转化为String对象
         uuid = uuid.replace("-", "");
         tUser.setUserId(uuid);
+        tUser.setStatus("1");
+        tUser.setCreateTime(new Date());
         tUserMapper.insert(tUser);
 
         TUserRole tUserRole = new TUserRole();
