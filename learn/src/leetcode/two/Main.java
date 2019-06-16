@@ -1,6 +1,4 @@
-package leetcode.add_two_numbers;
-
-import lombok.val;
+package leetcode.two;
 
 /***
  * 您将获得两个非空链表，表示两个非负整数。数字以相反的顺序存储，每个节点包含一个数字。添加两个数字并将其作为链接列表返回。
