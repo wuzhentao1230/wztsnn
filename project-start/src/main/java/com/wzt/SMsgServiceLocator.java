@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package wzt;
+package com.wzt;
 
 public class SMsgServiceLocator extends org.apache.axis.client.Service implements com.wzt.SMsgService {
 
@@ -17,25 +17,25 @@ public class SMsgServiceLocator extends org.apache.axis.client.Service implement
         super(config);
     }
 
-    public SMsgServiceLocator(String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public SMsgServiceLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
         super(wsdlLoc, sName);
     }
 
     // Use to get a proxy class for SMsg
-    private String SMsg_address = "http://10.1.51.10:8096/axis/services/SMsg";
+    private java.lang.String SMsg_address = "http://10.1.51.10:8096/axis/services/SMsg";
 
-    public String getSMsgAddress() {
+    public java.lang.String getSMsgAddress() {
         return SMsg_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private String SMsgWSDDServiceName = "SMsg";
+    private java.lang.String SMsgWSDDServiceName = "SMsg";
 
-    public String getSMsgWSDDServiceName() {
+    public java.lang.String getSMsgWSDDServiceName() {
         return SMsgWSDDServiceName;
     }
 
-    public void setSMsgWSDDServiceName(String name) {
+    public void setSMsgWSDDServiceName(java.lang.String name) {
         SMsgWSDDServiceName = name;
     }
 
@@ -61,7 +61,7 @@ public class SMsgServiceLocator extends org.apache.axis.client.Service implement
         }
     }
 
-    public void setSMsgEndpointAddress(String address) {
+    public void setSMsgEndpointAddress(java.lang.String address) {
         SMsg_address = address;
     }
 
@@ -78,7 +78,7 @@ public class SMsgServiceLocator extends org.apache.axis.client.Service implement
                 return _stub;
             }
         }
-        catch (Throwable t) {
+        catch (java.lang.Throwable t) {
             throw new javax.xml.rpc.ServiceException(t);
         }
         throw new javax.xml.rpc.ServiceException("There is no stub implementation for the interface:  " + (serviceEndpointInterface == null ? "null" : serviceEndpointInterface.getName()));
@@ -93,7 +93,7 @@ public class SMsgServiceLocator extends org.apache.axis.client.Service implement
         if (portName == null) {
             return getPort(serviceEndpointInterface);
         }
-        String inputPortName = portName.getLocalPart();
+        java.lang.String inputPortName = portName.getLocalPart();
         if ("SMsg".equals(inputPortName)) {
             return getSMsg();
         }
@@ -121,12 +121,12 @@ public class SMsgServiceLocator extends org.apache.axis.client.Service implement
     /**
     * Set the endpoint address for the specified port name.
     */
-    public void setEndpointAddress(String portName, String address) throws javax.xml.rpc.ServiceException {
-
+    public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
+        
 if ("SMsg".equals(portName)) {
             setSMsgEndpointAddress(address);
         }
-        else
+        else 
 { // Unknown Port Name
             throw new javax.xml.rpc.ServiceException(" Cannot set Endpoint Address for Unknown Port" + portName);
         }
@@ -135,7 +135,7 @@ if ("SMsg".equals(portName)) {
     /**
     * Set the endpoint address for the specified port name.
     */
-    public void setEndpointAddress(javax.xml.namespace.QName portName, String address) throws javax.xml.rpc.ServiceException {
+    public void setEndpointAddress(javax.xml.namespace.QName portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         setEndpointAddress(portName.getLocalPart(), address);
     }
 
