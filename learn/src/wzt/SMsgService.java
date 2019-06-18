@@ -5,10 +5,10 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package com.wzt;
+package wzt;
 
 public interface SMsgService extends javax.xml.rpc.Service {
-    public java.lang.String getSMsgAddress();
+    public String getSMsgAddress();
 
     public com.wzt.SMsg_PortType getSMsg() throws javax.xml.rpc.ServiceException;
 

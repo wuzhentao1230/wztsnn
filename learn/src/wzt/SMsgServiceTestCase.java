@@ -5,10 +5,10 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package com.wzt;
+package wzt;
 
 public class SMsgServiceTestCase extends junit.framework.TestCase {
-    public SMsgServiceTestCase(java.lang.String name) {
+    public SMsgServiceTestCase(String name) {
         super(name);
     }
 
@@ -36,8 +36,8 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
         binding.setTimeout(60000);
 
         // Test operation
-        java.lang.Object value = null;
-        value = binding.invoke(new java.lang.String());
+        Object value = null;
+        value = binding.invoke(new String());
         // TBD - validate results
     }
 
@@ -58,7 +58,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
         binding.setTimeout(60000);
 
         // Test operation
-        binding.main(new java.lang.String[0]);
+        binding.main(new String[0]);
         // TBD - validate results
     }
 
@@ -80,7 +80,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.init(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String());
+        value = binding.init(new String(), new String(), new String(), new String(), new String());
         // TBD - validate results
     }
 
@@ -146,7 +146,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendSM(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new java.lang.String(), 0);
+        value = binding.sendSM(new String(), new String(), new String(), new String[0], new String(), 0);
         // TBD - validate results
         System.out.println(value);
     }
@@ -169,7 +169,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendSM(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new java.lang.String(), 0, 0);
+        value = binding.sendSM(new String(), new String(), new String(), new String[0], new String(), 0, 0);
         // TBD - validate results
     }
 
@@ -191,7 +191,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendSM(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new java.lang.String(), 0, new java.lang.String());
+        value = binding.sendSM(new String(), new String(), new String(), new String[0], new String(), 0, new String());
         // TBD - validate results
     }
 
@@ -213,7 +213,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendSM(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new java.lang.String(), 0, 0, new java.lang.String());
+        value = binding.sendSM(new String(), new String(), new String(), new String[0], new String(), 0, 0, new String());
         // TBD - validate results
     }
 
@@ -235,7 +235,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendSM(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new java.lang.String(), new java.lang.String(), 0, 0);
+        value = binding.sendSM(new String(), new String(), new String(), new String[0], new String(), new String(), 0, 0);
         // TBD - validate results
     }
 
@@ -257,7 +257,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendSM(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new java.lang.String(), 0, 0, new java.lang.String(), new java.lang.String());
+        value = binding.sendSM(new String(), new String(), new String(), new String[0], new String(), 0, 0, new String(), new String());
         // TBD - validate results
     }
 
@@ -278,8 +278,8 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
         binding.setTimeout(60000);
 
         // Test operation
-        java.lang.String value = null;
-        value = binding.recvRPT(new java.lang.String(), new java.lang.String(), new java.lang.String());
+        String value = null;
+        value = binding.recvRPT(new String(), new String(), new String());
         // TBD - validate results
     }
 
@@ -301,7 +301,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendPDU(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new byte[0], 0, 0, 0, 0, new java.lang.String(), new java.lang.String(), new java.lang.String(), 0);
+        value = binding.sendPDU(new String(), new String(), new String(), new String[0], new byte[0], 0, 0, 0, 0, new String(), new String(), new String(), 0);
         // TBD - validate results
     }
 
@@ -323,7 +323,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         int value = -3;
-        value = binding.sendPDU(new java.lang.String(), new java.lang.String(), new java.lang.String(), new java.lang.String[0], new byte[0], 0, 0, 0, 0, 0, new java.lang.String(), new java.lang.String(), new java.lang.String(), 0);
+        value = binding.sendPDU(new String(), new String(), new String(), new String[0], new byte[0], 0, 0, 0, 0, 0, new String(), new String(), new String(), 0);
         // TBD - validate results
     }
 
@@ -344,8 +344,8 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
         binding.setTimeout(60000);
 
         // Test operation
-        java.lang.String value = null;
-        value = binding.recvMo(new java.lang.String(), new java.lang.String(), new java.lang.String());
+        String value = null;
+        value = binding.recvMo(new String(), new String(), new String());
         // TBD - validate results
     }
 
@@ -367,7 +367,7 @@ public class SMsgServiceTestCase extends junit.framework.TestCase {
 
         // Test operation
         boolean value = false;
-        value = binding.checkTime(new java.lang.String());
+        value = binding.checkTime(new String());
         // TBD - validate results
     }
 

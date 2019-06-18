@@ -5,7 +5,7 @@
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
-package com.wzt;
+package wzt;
 
 public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements com.wzt.SMsg_PortType {
     private java.util.Vector cachedSerClasses = new java.util.Vector();
@@ -26,10 +26,10 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("invoke");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "shell"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "shell"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"));
-        oper.setReturnClass(java.lang.Object.class);
+        oper.setReturnClass(Object.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "invokeReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -37,7 +37,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("main");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "args"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "args"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
@@ -46,15 +46,15 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("init");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "dbIp"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "dbIp"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "dbName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "dbName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "dbPort"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "dbPort"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "user"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "user"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "pwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "pwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
@@ -83,15 +83,15 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendSM");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "smID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
@@ -104,15 +104,15 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendSM");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "smID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
@@ -127,19 +127,19 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendSM");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "smID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "url"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "url"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
@@ -150,21 +150,21 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendSM");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "smID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "srcID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "url"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "url"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
@@ -175,17 +175,17 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendSM");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sendTime"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sendTime"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "smID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
@@ -205,23 +205,23 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendSM");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "smID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "srcID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "url"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "url"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sendTime"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sendTime"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
         oper.setReturnClass(int.class);
@@ -232,14 +232,14 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("recvRPT");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"));
-        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnClass(String.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "recvRPTReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -247,13 +247,13 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendPDU");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "base64Binary"), byte[].class, false, false);
         oper.addParameter(param);
@@ -265,11 +265,11 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "tpUdhi"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeTerminalID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeTerminalID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeUserType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
@@ -282,13 +282,13 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("sendPDU");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), java.lang.String[].class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "mobiles"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string"), String[].class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "content"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "base64Binary"), byte[].class, false, false);
         oper.addParameter(param);
@@ -302,11 +302,11 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "tpUdhi"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeTerminalID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeTerminalID"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "feeUserType"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
@@ -319,14 +319,14 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("recvMo");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "apiCode"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "loginPwd"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"));
-        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnClass(String.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "recvMoReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -334,7 +334,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("checkTime");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sendTime"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "sendTime"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string"), String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
         oper.setReturnClass(boolean.class);
@@ -361,22 +361,22 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
             super.service = service;
         }
         ((org.apache.axis.client.Service)super.service).setTypeMappingVersion("1.1");
-            java.lang.Class cls;
+            Class cls;
             javax.xml.namespace.QName qName;
             javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+            Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
             qName = new javax.xml.namespace.QName("http://sms.fegroup.com.cn:8096/axis/services/SMsg", "ArrayOf_soapenc_string");
             cachedSerQNames.add(qName);
-            cls = java.lang.String[].class;
+            cls = String[].class;
             cachedSerClasses.add(cls);
             qName = new javax.xml.namespace.QName("http://schemas.xmlsoap.org/soap/encoding/", "string");
             qName2 = null;
@@ -408,7 +408,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
             }
             java.util.Enumeration keys = super.cachedProperties.keys();
             while (keys.hasMoreElements()) {
-                java.lang.String key = (java.lang.String) keys.nextElement();
+                String key = (String) keys.nextElement();
                 _call.setProperty(key, super.cachedProperties.get(key));
             }
             // All the type mapping information is registered
@@ -422,14 +422,14 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
                     _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
                     _call.setEncodingStyle(org.apache.axis.Constants.URI_SOAP11_ENC);
                     for (int i = 0; i < cachedSerFactories.size(); ++i) {
-                        java.lang.Class cls = (java.lang.Class) cachedSerClasses.get(i);
+                        Class cls = (Class) cachedSerClasses.get(i);
                         javax.xml.namespace.QName qName =
                                 (javax.xml.namespace.QName) cachedSerQNames.get(i);
-                        java.lang.Object x = cachedSerFactories.get(i);
+                        Object x = cachedSerFactories.get(i);
                         if (x instanceof Class) {
-                            java.lang.Class sf = (java.lang.Class)
+                            Class sf = (Class)
                                  cachedSerFactories.get(i);
-                            java.lang.Class df = (java.lang.Class)
+                            Class df = (Class)
                                  cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
                         }
@@ -445,12 +445,12 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
             }
             return _call;
         }
-        catch (java.lang.Throwable _t) {
+        catch (Throwable _t) {
             throw new org.apache.axis.AxisFault("Failure trying to get the Call object", _t);
         }
     }
 
-    public java.lang.Object invoke(java.lang.String shell) throws java.rmi.RemoteException {
+    public Object invoke(String shell) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -463,7 +463,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {shell});
+ try {        Object _resp = _call.invoke(new Object[] {shell});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -471,9 +471,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                return (Object) _resp;
+            } catch (Exception _exception) {
+                return (Object) org.apache.axis.utils.JavaUtils.convert(_resp, Object.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -481,7 +481,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public void main(java.lang.String[] args) throws java.rmi.RemoteException {
+    public void main(String[] args) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -494,7 +494,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {args});
+ try {        Object _resp = _call.invoke(new Object[] {args});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -505,7 +505,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int init(java.lang.String dbIp, java.lang.String dbName, java.lang.String dbPort, java.lang.String user, java.lang.String pwd) throws java.rmi.RemoteException {
+    public int init(String dbIp, String dbName, String dbPort, String user, String pwd) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -518,7 +518,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {dbIp, dbName, dbPort, user, pwd});
+ try {        Object _resp = _call.invoke(new Object[] {dbIp, dbName, dbPort, user, pwd});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -526,9 +526,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -549,7 +549,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
+ try {        Object _resp = _call.invoke(new Object[] {});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -557,9 +557,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -580,7 +580,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {});
+ try {        Object _resp = _call.invoke(new Object[] {});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -588,9 +588,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                return ((Boolean) _resp).booleanValue();
+            } catch (Exception _exception) {
+                return ((Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -598,7 +598,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendSM(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, java.lang.String content, long smID) throws java.rmi.RemoteException {
+    public int sendSM(String apiCode, String loginName, String loginPwd, String[] mobiles, String content, long smID) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -611,7 +611,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, new java.lang.Long(smID)});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, new Long(smID)});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -619,9 +619,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -629,7 +629,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendSM(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, java.lang.String content, long smID, long srcID) throws java.rmi.RemoteException {
+    public int sendSM(String apiCode, String loginName, String loginPwd, String[] mobiles, String content, long smID, long srcID) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -642,7 +642,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, new java.lang.Long(smID), new java.lang.Long(srcID)});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, new Long(smID), new Long(srcID)});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -650,9 +650,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -660,7 +660,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendSM(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, java.lang.String content, long smID, java.lang.String url) throws java.rmi.RemoteException {
+    public int sendSM(String apiCode, String loginName, String loginPwd, String[] mobiles, String content, long smID, String url) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -673,7 +673,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, new java.lang.Long(smID), url});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, new Long(smID), url});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -681,9 +681,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -691,7 +691,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendSM(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, java.lang.String content, long smID, long srcID, java.lang.String url) throws java.rmi.RemoteException {
+    public int sendSM(String apiCode, String loginName, String loginPwd, String[] mobiles, String content, long smID, long srcID, String url) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -704,7 +704,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, new java.lang.Long(smID), new java.lang.Long(srcID), url});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, new Long(smID), new Long(srcID), url});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -712,9 +712,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -722,7 +722,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendSM(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, java.lang.String content, java.lang.String sendTime, long smID, long srcID) throws java.rmi.RemoteException {
+    public int sendSM(String apiCode, String loginName, String loginPwd, String[] mobiles, String content, String sendTime, long smID, long srcID) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -735,7 +735,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, sendTime, new java.lang.Long(smID), new java.lang.Long(srcID)});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, sendTime, new Long(smID), new Long(srcID)});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -743,9 +743,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -753,7 +753,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendSM(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, java.lang.String content, long smID, long srcID, java.lang.String url, java.lang.String sendTime) throws java.rmi.RemoteException {
+    public int sendSM(String apiCode, String loginName, String loginPwd, String[] mobiles, String content, long smID, long srcID, String url, String sendTime) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -766,7 +766,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, new java.lang.Long(smID), new java.lang.Long(srcID), url, sendTime});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, new Long(smID), new Long(srcID), url, sendTime});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -774,9 +774,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -784,7 +784,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public java.lang.String recvRPT(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd) throws java.rmi.RemoteException {
+    public String recvRPT(String apiCode, String loginName, String loginPwd) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -797,7 +797,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -805,9 +805,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+                return (String) _resp;
+            } catch (Exception _exception) {
+                return (String) org.apache.axis.utils.JavaUtils.convert(_resp, String.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -815,7 +815,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendPDU(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, byte[] content, long smID, int msgFmt, int tpPID, int tpUdhi, java.lang.String feeTerminalID, java.lang.String feeType, java.lang.String feeCode, int feeUserType) throws java.rmi.RemoteException {
+    public int sendPDU(String apiCode, String loginName, String loginPwd, String[] mobiles, byte[] content, long smID, int msgFmt, int tpPID, int tpUdhi, String feeTerminalID, String feeType, String feeCode, int feeUserType) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -828,7 +828,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, new java.lang.Long(smID), new java.lang.Integer(msgFmt), new java.lang.Integer(tpPID), new java.lang.Integer(tpUdhi), feeTerminalID, feeType, feeCode, new java.lang.Integer(feeUserType)});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, new Long(smID), new Integer(msgFmt), new Integer(tpPID), new Integer(tpUdhi), feeTerminalID, feeType, feeCode, new Integer(feeUserType)});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -836,9 +836,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -846,7 +846,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public int sendPDU(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd, java.lang.String[] mobiles, byte[] content, long smID, long srcID, int msgFmt, int tpPID, int tpUdhi, java.lang.String feeTerminalID, java.lang.String feeType, java.lang.String feeCode, int feeUserType) throws java.rmi.RemoteException {
+    public int sendPDU(String apiCode, String loginName, String loginPwd, String[] mobiles, byte[] content, long smID, long srcID, int msgFmt, int tpPID, int tpUdhi, String feeTerminalID, String feeType, String feeCode, int feeUserType) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -859,7 +859,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd, mobiles, content, new java.lang.Long(smID), new java.lang.Long(srcID), new java.lang.Integer(msgFmt), new java.lang.Integer(tpPID), new java.lang.Integer(tpUdhi), feeTerminalID, feeType, feeCode, new java.lang.Integer(feeUserType)});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd, mobiles, content, new Long(smID), new Long(srcID), new Integer(msgFmt), new Integer(tpPID), new Integer(tpUdhi), feeTerminalID, feeType, feeCode, new Integer(feeUserType)});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -867,9 +867,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                return ((Integer) _resp).intValue();
+            } catch (Exception _exception) {
+                return ((Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -877,7 +877,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public java.lang.String recvMo(java.lang.String apiCode, java.lang.String loginName, java.lang.String loginPwd) throws java.rmi.RemoteException {
+    public String recvMo(String apiCode, String loginName, String loginPwd) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -890,7 +890,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {apiCode, loginName, loginPwd});
+ try {        Object _resp = _call.invoke(new Object[] {apiCode, loginName, loginPwd});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -898,9 +898,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+                return (String) _resp;
+            } catch (Exception _exception) {
+                return (String) org.apache.axis.utils.JavaUtils.convert(_resp, String.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -908,7 +908,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 }
     }
 
-    public boolean checkTime(java.lang.String sendTime) throws java.rmi.RemoteException {
+    public boolean checkTime(String sendTime) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -921,7 +921,7 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {sendTime});
+ try {        Object _resp = _call.invoke(new Object[] {sendTime});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -929,9 +929,9 @@ public class SMsgSoapBindingStub extends org.apache.axis.client.Stub implements 
         else {
             extractAttachments(_call);
             try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                return ((Boolean) _resp).booleanValue();
+            } catch (Exception _exception) {
+                return ((Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
