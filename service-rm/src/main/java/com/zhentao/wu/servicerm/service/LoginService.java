@@ -1,5 +1,6 @@
 package com.zhentao.wu.servicerm.service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.zhentao.wu.automybatis.mapper.TUserMapper;
 import com.zhentao.wu.automybatis.mapper.TUserRoleMapper;
@@ -54,28 +55,38 @@ public class LoginService {
         userInfo.put("roles", roles);
 
         Set<String> permissions = this.tUserMapperS.getPermission(username);
-        userInfo.put("permissions", permissions);
+        userInfo.put("access", permissions);
 
         user.setPassword("it's a secret");
-        userInfo.put("user", user);
+        //userInfo.put("user", user);
+        userInfo.put("user_id", user.getId());
+        userInfo.put("avatar", user.getAvatar());
         return userInfo;
     }
-    public String saveTokenToRedis(TUser user, JWTToken token, HttpServletRequest request) throws Exception {
+    public String saveUserInfoToRedis(TUser user, Map<String, Object> userInfo,JWTToken token, HttpServletRequest request) throws Exception {
         String ip = IPUtil.getIpAddr(request);
-
         // 构建在线用户
         ActiveUser activeUser = new ActiveUser();
-        activeUser.setUsername(user.getUsername());
+        activeUser.setName(user.getUsername());
         activeUser.setIp(ip);
         activeUser.setToken(token.getToken());
         activeUser.setLoginAddress(AddressUtil.getCityInfo(1, ip));
-
-        // zset 存储登录用户，score 为过期时间戳
-        this.redisService.zadd("user.active", Double.valueOf(token.getExipreAt()), JSONObject.toJSONString(activeUser));
-        // redis 中存储这个加密 token，key = 前缀 + 加密 token + .ip
+        activeUser.setAccess(userInfo.get("access"));
+        activeUser.setUser_id(user.getUserId());
+        activeUser.setAvatar(user.getAvatar());
         this.redisService.set("cache.token." + token.getToken() + "." + ip, token.getToken(), 86400L * 1000);
+        this.redisService.set(token.getToken(), JSONObject.toJSONString(activeUser), 1000L * 60 * 60 * 24);
+        return null;
+    }
 
-        return activeUser.getId();
+    public ActiveUser getUserInfo(String token) throws Exception {
+        String userInfo = this.redisService.get(token);
+        ActiveUser activeUser = null;
+        if (userInfo != null && !userInfo.isEmpty()){
+            activeUser = JSON.parseObject(userInfo, ActiveUser.class);
+        }
+
+        return activeUser;
     }
 
     public RmResultBean registUser(TUser tUser){

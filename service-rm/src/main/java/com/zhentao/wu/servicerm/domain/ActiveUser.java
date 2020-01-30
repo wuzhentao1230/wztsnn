@@ -19,7 +19,7 @@ public class ActiveUser implements Serializable {
     // 唯一编号
     private String id = RandomStringUtils.randomAlphanumeric(20);
     // 用户名
-    private String username;
+    private String name;
     // ip地址
     private String ip;
     // token(加密后)
@@ -28,4 +28,10 @@ public class ActiveUser implements Serializable {
     private String loginTime = DateUtil.formatFullTime(LocalDateTime.now(),DateUtil.FULL_TIME_SPLIT_PATTERN);
     // 登录地点
     private String loginAddress;
+    // 头像
+    private String avatar;
+    // 用户id
+    private String user_id;
+    // 用户id
+    private Object access;
 }
