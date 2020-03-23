@@ -51,7 +51,7 @@ public class Solution {
         a1.next = a2;
         a2.next = a3;
         a3.next = a4;
-//        a4.next = a5;
+        a4.next = a5;
 
         ListNode listNode = new Solution().middleNodeByFastAndSlow(a1);
         System.out.println(listNode.val);
