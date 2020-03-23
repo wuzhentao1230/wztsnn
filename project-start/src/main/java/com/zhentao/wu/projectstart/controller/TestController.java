@@ -51,9 +51,6 @@ public class TestController {
             jsonArray.add(dd1);
             jsonArray.add(dd2);
 
-
-
-
             jsonObject.put("content",jsonArray);
             // CustomWebSocket.sendInfo("测试ws成功");
             return jsonObject;
