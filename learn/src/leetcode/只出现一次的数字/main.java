@@ -20,6 +20,6 @@ public class main {
         return 0;
     }
     public static void main(String[] args) {
-        System.out.println(new main().singleNumber(new int[]{2,2,1}));
+        System.out.println(new main().singleNumber(new int[]{2,1,1}));
     }
 }
