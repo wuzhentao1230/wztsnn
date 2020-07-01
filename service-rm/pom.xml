@@ -13,7 +13,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <mysql.version>5.1.42</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <mapper.plugin>tk.mybatis.mapper.generator.MapperPlugin</mapper.plugin>
         <mapper.Mapper>tk.mybatis.mapper.common.Mapper</mapper.Mapper>
         <shiro.version>1.3.2</shiro.version>
